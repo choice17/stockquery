@@ -1,0 +1,878 @@
+* Taiwan
+
+
+* Country
+
+@1. ^DJI
+#USA
+The Dow Jones Industrial Average, Dow Jones, or simply the Dow, is a stock market index of 30 prominent companies listed on stock exchanges in the United States.
+道瓊工業指數 (Dow Jones Industrial Average Index)，又稱道瓊工業平均指數，是最悠久的美國市場指數之一， 包括美國30間最大、最知名的上市公司加權平均出來的指數。 時至今日，平均指數包括美國30間最大
+
+@2. ^GSPC
+#USA
+S&P 500
+The Standard and Poor's 500, or simply the S&P 500, is a stock market index tracking the stock performance of 500 of the largest companies listed on stock exchanges in the United States
+標準普爾500指數 (S&P 500 Index) 統計美國上市的500個大型股，與 道瓊工業平均股票指數 相比，標準普爾500指數 採樣面廣、代表性強、精確度高， 因此 道瓊工業平均股票指數 和 標準普爾500指數 是為大型股票的重要指標。
+
+@3. ^IXIC
+#USA
+NASDAQ
+The Nasdaq Stock Market is an American stock exchange based in New York City. It is the most active stock trading venue in the US by volume, and ranked second on the list of stock exchanges by market capitalization of shares traded
+納斯達克綜合指數 (Nasdaq Composite Index)，成分股包含所有在美國納斯達克上市的公司股價，其中以高科技公司為主，因此全世界的科技股也都是以 納斯達克綜合指數 為指標。
+
+@4. ^VIX
+CBOE Volatility Index
+Chicago Options - Chicago Options
+
+@5. ^SOX
+#USA #TECH
+The PHLX Semiconductor Sector is a Philadelphia Stock Exchange capitalization-weighted index composed of the 30 largest U.S. companies primarily involved in the design, distribution, manufacture, and sale of semiconductors
+費城半導體指數 (Philadelphia Semiconductor Index)創立於1993年，為全球半導體業景氣主要指標之一。該指數有19個成分股，涵蓋半導體設計、設備、製造、銷售與配銷等面向，包括應用材料(Applied Materials)、超微(AMD)、博通(Broadcom)、飛思卡爾(Freescale)、英飛凌(Infinenon)、英特爾(Intel)、美光(Micron)、意法半導體(STMicroelectronics)、德儀(TI)、賽靈思(Xilinx)、國家半導體(National Semiconductor)、科磊(KLA-Tencor)、泰瑞達(Teradyne)、諾發(Novellus Systems)、Maxim、Marvell Technology、Linear Technology、Altera等，此外台積電的ADR也在此列。
+
+@6. ^N225
+#JP
+The Nikkei 225, or the Nikkei Stock Average, more commonly called the Nikkei or the Nikkei index, is a stock market index for the Tokyo Stock Exchange
+日本GDP總量至2010年前一直名列世界第2位，2010年被中國超過。 1990年代，日本泡沫經濟破滅，銀行壞賬高企，經濟一蹶不振，2008年世界金融危機中遭到沉重打擊；直至2010年代，日本經濟更不樂觀，被稱作「失去的二十年」。 特別是經過2011年的東日本大地震、海嘯、福島核泄漏，以及日元高企等因素，日本經濟再次陷入衰退之中。 2012年底，安倍晉三重任首相後大推「安倍經濟學」(Abenomics)，力圖以寬鬆貨幣政策、龐大經濟刺激措施和市場結構改革這「三支箭」，扭轉日本經濟多年低迷困境。
+
+@7. ^HSI
+#HK
+The Hang Seng Index is a freefloat-adjusted market-capitalization-weighted stock-market index in Hong Kong
+
+@8. ^HSCC
+Red Chip group index
+
+@9. ^HSNF
+HangSeng Finance
+
+@10. ^HSNP
+HangSeng Land Proporties
+
+@11. ^HSNC
+HangSeng commercial
+
+@12. ^HSNU
+HangSeng public company
+
+@13. 000001.SS
+#CNSSE
+The SSE Composite Index also known as SSE Index is a stock market index of all stocks that are traded at the Shanghai Stock Exchange
+
+@14. 399001.SZ
+#CN
+Shenzhen Index (399001.SZ)
+
+@15. ^KS11
+#KR
+Korea Stock Exchange
+
+@16. ^GDAXI
+#GN
+German Stock Index
+
+@17. ^FTSE
+#BRI
+British
+
+@18. ^FCHI
+#FRENCH
+French
+
+@19. ^JKSE
+Jakarta Delayed Price 
+
+@20. ^BSESN
+Indian india index Mumbai City top30
+
+@21. ^KLSE
+Malysia
+
+@22. ^STI
+Singapore
+
+@23. ^AORD
+Australia
+人口只有2200萬的澳洲2010年人均國內生產總值高達65000美元，居全球第六位；遠高於同是英語國家的美國、英國和加拿大；人類發展指數雄踞世界第二名，僅次於挪威。澳洲是世界十大農產品出口國和六大礦產資源出口國之一。被稱作「騎在羊背上的、坐在礦車上的、手持麥穗的國家。」此外，澳洲的旅遊業也在全球名列前茅。
+澳洲礦產資源豐富，有「坐在礦車上的國家」的美譽。鋁土礦、鉛、鎳、銀、鈾、鋅、鉭的探明經濟儲量居世界首位。原油儲量2,270億升，天然氣儲量22,000萬億立方米。 澳洲為南半球第一大工業國，採礦業為澳洲最主要的工業部門。澳洲為世界最大的煙煤、鋁礬土、鉛、鑽石、鋅及精礦出口國；第二大氧化鋁、鐵礦石、鈾礦出口國；第三大鋁和黃金出口國。此外，澳洲煤、鋰、錳礦石、鎳、銀的產量也相當大。
+澳洲的金融業，商業和服務業也極為發達。2010年，澳幣正式取代瑞士法郎的國際地位，成為全球第五大流通貨幣。 澳洲金融業極為發達，澳洲是世界上銀行總價值第三高的國家，僅次於中國和美國。澳洲四大銀行的市值甚至超過了歐元區所有國家所有銀行的總和。
+
+@24. ^AXJO
+Australia delay
+The S&P/ASX 200 index is a market-capitalization weighted and float-adjusted stock market index of stocks listed on the Australian Securities Exchange. The index is maintained by Standard & Poor's and is considered the benchmark for Australian equity performance
+
+@25. ^NZ50
+NewZealand
+紐西蘭50指數(又稱NZX 50指數)為紐西蘭股票交易所發行的指數，位於紐西蘭威林頓(Wellington, NZ)， 收列紐西蘭的前50大公司股價，包含金融、通訊媒體、能源等分類股票。
+紐西蘭經濟屬市場經濟，十分依賴國際貿易，主要貿易夥伴為澳大利亞、歐盟、美國、中國和日本，主要產業為旅遊業和第一產業（農業等）。 紐西蘭對貿易十分依賴，其增長前景很受亞洲、歐洲、美國的經濟表現影響。 世界銀行將紐西蘭列為世界上最方便營商的國家、全球商業友好國家中排第2名。
+
+@26. ^BVSP
+Brasil
+
+@27. PSEI.SE
+philippine
+
+@28. IMOEX.ME
+Russia
+MOEX Russia Index
+
+@29. RTSI.ME
+Russia
+The RTS Index (RTSI; Russian: Индекс РТС) is a free-float capitalization-weighted index of 50 Russian stocks traded on the Moscow Exchange
+
+@30. ^RUT
+The term Russell 2000 Index refers to a stock market index that measures the performance of the 2,000 smaller companies included in the Russell 3000 Index. The Russell 2000 is managed by London's FTSE Russell Group and is widely regarded as a bellwether of the U.S. economy because of its focus on smaller companies that focus on the U.S. market.
+
+@31. ^STOXX50E
+The EURO STOXX 50 is a stock index of Eurozone stocks designed by STOXX, an index provider owned by Deutsche Börse Group. The index is composed of 50 stocks from 11 countries in the Eurozone. EURO STOXX 50 represents Eurozone blue-chip companies considered as leaders in their respective sectors
+
+@32. ^CMC200
+CMC Crypto 200 Index by Solacti
+
+@33. ^TWII
+Taiwan weighted average
+
+@34. HSTECH.HK
+HangSeng Tech HK
+
+@35. 2828.HK
+Hong Kong China company index
+
+@36. FVTT.FGI
+vietnam index
+
+@37. ^SET.BK
+Thailand
+
+@38. ^PTXUSD
+Poland Traded Index in USD, or PTL in EUR
+
+@39. ^CTXUSD
+Czech Traded Index in USD or CTL in EUR
+
+@40. ^ATX
+Austrian Traded Index in USD
+
+@41. ^HTXUSD
+Hungarian Traded Index in HUF ^HTL
+匈牙利自然資源貧乏，主要礦產是鋁土，蘊藏量居歐洲第三。全國2/3的地區有地熱資源。農業占重要地位，主要產品有小麥，玉米，馬鈴薯和甜菜。工業以機械製造，精密儀器，食品加工和紡織為主，葡萄酒釀造非常出名。
+2007年以後，由於全球經濟危機影響，匈牙利經濟迅速衰退。據統計，匈牙利是本次全球經濟危機的重災國之一。 2012-2013年間，匈牙利利率連十降，以提高放貸與振興經濟成長。
+
+@42. BTX.VI
+bulgaria trade index
+
+@43. ROX.VI
+Romanian Traded Index in USD ( ROE.VI for EUR )
+
+@44. ^BFX
+比利時是歐盟的創始會員國之一，人口稠密的比利時是世界上工業最發達的地區之一，是19世紀初歐洲大陸最早進行工業革命的國家之一。比利時擁有完善的港口、運河、鐵路以及公路等基礎設施，為與鄰國更緊密的經濟整和創造條件。
+
+比利時經濟十分倚賴國際貿易。全國GNP的大約三分之二來自出口，人均出口是德國的兩倍，日本的五倍。比利時的出口優勢來自於其重要的地理位置以及高度技術化、多語言以及高效率的勞動力。比利時主要進口食品、機械、鑽石（未成品）、石油、化工材料、紡織品；主要出口汽車、食品、鋼鐵、藥品、鑽石（成品）、紡織品等。 位於比利時北部的安特衛普為歐洲第二大港，同時也是世界上最大的鑽石加工地，有鑽石之都的稱譽。
+
+@45. ^SSMI
+瑞士是世界最為穩定的經濟體之一。 其政策的長期性、安全的金融體系和銀行的保密體制使瑞士成為避稅投資者的安全避風港。瑞士是世界上最為富裕的國家之一，人均收入處在世界最高行列，同時有著很低的失業率和財政赤字。由於擁有發達的金融產業，服務業在瑞士經濟中也佔有日益重要的地位。
+
+瑞士擁有最優秀的人力素質，製造業為瑞士最重要的產業，製造業以生產專業化學製品、藥品及醫療產品、科學精密測量儀器、樂器為主。主要出口產品包括化學製品、機械及電子設備、精密儀器及鐘錶。服務業為瑞士另一重要產業，包括銀行業、旅遊業、保險業及國際組織等。
+
+@46. ^IBEX
+西班牙指數（馬德里指數、Madrid Stock Exchange General Index）是西班牙經濟的風向球， 也是投資南歐的重要指標，包含建設、金融服務、通訊、消費、能源與各式商品類股。
+
+西班牙在世界範圍內屬於已開發的工業國，21世紀初人均所得一度超越義大利，2008年造成歐洲主權債務危機，金融海嘯前三分一經濟靠房地產支撐，海嘯爆發後經濟持續不振，2010年失業率更高達10.05%。 西班牙近年來的經濟改革效果卓越，不過失業率持續高企。根據統計，2013年初，西班牙共有620萬人失業，失業率高達27.2%，為近19年來最高，也是17個歐元區國家中最高失業率。
+
+@47. GD.AT
+Athen COMPOSITE INDEX
+希臘的主要行業為旅遊、航運、工業產品、食品和煙草的加工、紡織、化工、金屬製品、煤礦和石油業。自1990年代初以來，希臘 GDP增長的平均值超過歐盟。然而，希臘的經濟也面臨著重大的問題，包括迅速上升的失業率、效率低下的公共部門的官僚機構、逃稅、腐敗和較低的全球競爭力。
+
+自2008年全球金融危機發生以來，希臘經濟已衰退了約25%；2009年末，報導披露希臘債務比預期高得許多，使經濟再度承受重大打擊。2010年2月，政府欠債3千億歐元，無力償債而導致國家破產，釀成歐洲主權債務危機，在2011年幾乎導致歐元區瓦解。在2010年最後一個季度中，青年失業率達到36.1％。 希臘正經濟緊縮、結構改革、改善財政狀況，以便降低財政赤字、吸引外資和恢復經濟增長，擺脫債務危機與連續六年經濟衰退，以期能恢復經濟正成長。
+
+@48. PSI20.LS
+葡萄牙是歐盟成員國經濟之一部份，雖為發達國家的一員，但其發展水平僅處中下游，其農業所佔比重較高，工業基礎薄弱，人民生活水平較低。 工業方面則有金屬提煉、化工、石油等，但最出名的卻是以水松木製造的軟木塞，居世界前列，有「軟木王國」之稱。昔日葡萄牙在海外擁有大量殖民地，為葡萄牙經濟帶來源源不絕的原料，但自各殖民地相繼獨立後，這方面優勢已日見消失。
+
+@49. XU100.IS
+Turkey. The BIST 100 index is a commonly used abbreviation for the Borsa Istanbul stock exchange, Turkey's main stock exchange
+土耳其指數（伊斯坦堡100指數、ISE National-100 index）是土耳其伊斯坦堡股票交易所發行的指數， 投資土耳其與東歐基金的重要指標。
+土耳其在生產農產品、紡織品、汽車、船隻及其他運輸工具、建築材料和家用電子產品皆居領導地位。 中央情報局將土耳其分類為已開發國家，但經濟學家及政治學家常將土耳其認定為新興工業化國家，然而美林證券、世界銀行及經濟學人雜誌將其歸類為新興市場。 世界銀行就土耳其2007年之人均國內生產總值分類其為中高所得國家。
+如同多數經濟體，土耳其經濟亦受全球金融海嘯影響，土耳其財政部公佈的經濟赤字於2009年上半年快速增加至232億里拉(150億美元)，為一年前的13倍。 土耳其股市於2009年間幾乎翻漲了兩倍，根據經濟學人雜誌，土耳其股市的漲幅在2008年12月至2009年12月間僅次於阿根廷股市。
+
+@50. ^TA125.TA
+Israeli stock market index.
+
+@51. DFM.AE
+中東杜拜雖然靠石油致富，政府的經營決策從依賴石油至服務、觀光業提升，使得不動產升值，讓杜拜經歷前所未有的發展，石油收益，如今佔杜拜GDP只剩下1%。 有秩序的建設使得杜拜成為世界成長最快速的城市之一，例如世界知名的帆船飯店與杜拜塔。 杜拜目前的經濟主要建基於貿易，更是資訊技術與金融的產業重鎮，並將有杜拜國際金融中心（DIFC）。
+
+自雷曼兄弟倒閉開始，杜拜資金就已經開始出現軋不過來的狀況。2009年11月25日，杜拜官方宣佈杜拜國營事業杜拜世界（Dubai World）將展延償債期限至少半年。此舉造成世界各國震撼，杜拜信用評等也隨之滑落，各國股市更是應聲而倒。 2013年，當地的房地產價格已回復到危機前的水準，觀光業蓬勃發展且貿易熱絡，市場欣欣向榮。 但杜拜背負的龐大債務將在近幾年陸續到期，IMF表示，2013年至2017年間，杜拜約有600億美元的債務到期。
+
+@52. ^NYA
+NYSE COMPOSITE
+
+@53. ^NDX
+NASDAQ 100
+
+@54. ^SP100
+SP100
+
+@55. ^HUI
+金蟲指數 (AMEX Gold Bugs Index)，代碼HUI，是紐約證券交易所於1996年3月15日所推出。 主要為篩選那些超過一年以上未對黃金產量進行對沖的公司股票再經過匯率的調整後加權平均得出的指數，此一指數前五大成分股為Barrick Gold Corp、Goldcorp I nc、紐曼礦業、Gold Fields Ltd、Harmony Gold Mining Co.Ltd。 而這個指數目的為提供一個更為貼近黃金相關產業公司股票價格的指標，與 費城黃金白銀指數 (XAU) 並列為基金業在操作黃金相關類股時兩大主要參考指標。
+
+@56. ^XAU
+費城金銀指數 (Philadelphia Gold and Silver Index)，又稱費城黃金白銀指數，代碼XAU，由美國費城股票交易所推出，包含16家黃金與貴金屬相關公司的股票。 費城黃金白銀指數 (XAU) 與 AMEX金蟲指數 (HUI) 為基金業在操作黃金相關類股的時候兩個最常參考的主要指標。
+
+@57. ^DJGSP
+道瓊貴金屬指數 (Dow Jones Precious Metals Index)，代號 DJGSP，由十幾家黃金、銀、白金以及少量貴金屬(銥、鈀)的礦產公司股票組成，其中前五大股票即佔了約80%成分。
+1. ABX：Barrick Gold Corp. (多倫多)
+2. GG：Goldcorp Inc. (溫哥華)
+3. FCX：Freeport-McMoRan Copper & Gold Inc. (鳳凰城)
+4. NEM：Newmont Mining Corp. (丹佛)
+5. ADS：AngloGold Ashanti Ltd. (約翰尼斯堡)
+
+@58. ^DJUSEN
+Dow Jones U.S. Oil & Gas Index	658.52	+4.08	+0.62%
+
+@59. ^DJUSRE
+Dow Jones U.S. Real Estate Inde	319.75	-0.43	-0.13%
+
+@60. ^DJUSBK
+Dow Jones U.S. Banks Index	396.72	-3.27	-0.82%
+
+@61. ^DJUSBM
+Dow Jones U.S. Basic Materials 	526.02	+0.70	+0.13%
+
+@62. ^DJUSBT
+Dow Jones U.S. Biotechnology In	2,538.46	+18.86	+0.75%
+
+@63. ^GSPTSE
+Canada toronto
+
+@64. ^BFX
+Belgium stock market Brussels
+比利時是歐盟的創始會員國之一，人口稠密的比利時是世界上工業最發達的地區之一，是19世紀初歐洲大陸最早進行工業革命的國家之一。比利時擁有完善的港口、運河、鐵路以及公路等基礎設施，為與鄰國更緊密的經濟整和創造條件。
+
+比利時經濟十分倚賴國際貿易。全國GNP的大約三分之二來自出口，人均出口是德國的兩倍，日本的五倍。比利時的出口優勢來自於其重要的地理位置以及高度技術化、多語言以及高效率的勞動力。比利時主要進口食品、機械、鑽石（未成品）、石油、化工材料、紡織品；主要出口汽車、食品、鋼鐵、藥品、鑽石（成品）、紡織品等。 位於比利時北部的安特衛普為歐洲第二大港，同時也是世界上最大的鑽石加工地，有鑽石之都的稱譽。
+
+@65. ^BVSP
+Bovespa
+Brazil São Paulo stock market index BRL
+
+@66. MAJ.AS
+Luxembourg Amsterdam 
+
+@67. ^AEX
+Netherlands Luxembourg
+
+@68. ^ISEQ
+Ireland Irish
+愛爾蘭曾是歐洲發展最落後的農業國家，《經濟學人》在 1988 年將愛爾蘭稱為「歐洲乞丐」。然而，自1990年代起，藉由加入歐盟及歐元區的助力，以及低稅率的成長模式，愛爾蘭經濟以驚人之勢快速崛起。 愛爾蘭的人均所得在2007年高達6萬美元左右，高居歐盟第二名、全球第五名。愛爾蘭在短時間內經濟成功轉型的奇蹟，讓其被譽為「凱爾特之虎」。
+
+2008 年受美國次貸危機影響，愛爾蘭房市泡沫破滅，營建業遭受重創，導致銀行業背負龐大壞帳。為拯救銀行業，愛爾蘭政府除對銀行債務提供擔保外，並對銀行挹注大量資金，政府財政因此陷入空前危機，最終難以為繼、爆發主權債務危機。 愛爾蘭於2010年接受歐盟和國際貨幣基金總額850億美元的紓困，由於經濟逐漸復甦，於2013年12月15日退出國際紓困方案。
+
+@69. FTSEMIB.MI
+Italy Milan
+義大利指數是投資義大利的重要指數。
+義大利是G8成員，也是OECD的會員國。根據GDP的計算，2012年義大利是世界第六大經濟體，僅次於美國、日本、德國、英國、法國。義大利也是歐洲的第四大經濟體。 義大利於1999年加入歐元區，義大利經濟的表現時常落後於她的歐盟夥伴，現政府已採取為數眾多的短期改革措施，以提升競爭力和長遠增長。然而，諸如減輕高額的稅負負擔、重新審視其僵化的勞動力市場，和花費巨大的養老體系等，卻由於經濟的減速和工會組織的反對，而進展緩慢。
+近年來義大利面臨經濟成長低迷和國際競爭力下降的問題、以及歐洲主權債務危機。
+
+@70. CHILE.SN
+Banco de Chile
+
+@71. ^ESDOWD
+Spain, ESDOW (EUR)
+西班牙指數（馬德里指數、Madrid Stock Exchange General Index）是西班牙經濟的風向球， 也是投資南歐的重要指標，包含建設、金融服務、通訊、消費、能源與各式商品類股。
+西班牙在世界範圍內屬於已開發的工業國，21世紀初人均所得一度超越義大利，2008年造成歐洲主權債務危機，金融海嘯前三分一經濟靠房地產支撐，海嘯爆發後經濟持續不振，2010年失業率更高達10.05%。 西班牙近年來的經濟改革效果卓越，不過失業率持續高企。根據統計，2013年初，西班牙共有620萬人失業，失業率高達27.2%，為近19年來最高，也是17個歐元區國家中最高失業率。
+
+@72. ^IBEX
+Madrid Stock Exchange General Index
+
+@73. ^OMXSPI
+All share
+Sweden 瑞典指數（斯德歌爾摩指數、OMX Stockholm 30 指數）是瑞典斯德歌爾摩股票交易所發行的股市指數， 包含30大上市公司股票（例如知名手機廠商 Ericsson），反應瑞典股市與經濟走向，為北歐的主要股市之一。
+瑞典森林資源豐富，林業在國民經濟中地位重要，除木材原料出口外，還建立了龐大的紙漿、造紙、傢具、林產化工等配套深度加工工業部門，其產量和出口量均居世界最前列。 瑞典在保留傳統的特色同時，優勢部門卻已轉向技術集約度高的機械工業和化學工業，大力發展信息、通訊、生物、醫藥、環保等新興產業。目前，瑞典擁有自己的航空業、核工業、汽車製造業、先進的軍事工業，以及全球領先的電訊業和醫藥研究能力。在軟體開發、微電子、遠程通訊和光子領域，瑞典也居世界領先地位。 2006年，瑞典共有6家企業進入《財富雜誌》評選的全球500強企業。
+
+@74. ^OSEAX
+Oslo Bors All-Share Index_GI (^OSEAX)
+Oslo - Oslo Delayed Price. Currency in NOK
+Norway
+挪威指數（OBX index）包含在奧斯陸交易所的大型公司股市，為北歐的主要股市之一。
+挪威的自然資源十分豐富，其主要表現在石油、水利、漁業、森林和礦產等方面，其中挪威經濟很大程度上依賴石油產業及國際油價，例如1999年，挪威的石油及天然氣占其出口總額的35％，作為非石油輸出國組織的成員，挪威的石油輸出僅次於沙烏地阿拉伯和俄羅斯。
+挪威連續6年(2001-2006)被聯合國評為最適宜居住的國家，挪威人仍然擔心在未來的20年里，當石油和天然氣開始耗盡時，其生活水平會開始下降。所以挪威建立了國家石油基金，將石油產業的利潤用於海外投資。截至2007年11月，國家石油基金已有3800億美元。
+
+@75. ^DKDOWD
+Demark DKDOW
+丹麥經濟是一個完全現代化的市場經濟體，但又帶有濃厚的社會主義色彩，一般收入者的個人所得稅率超過百分之五十，擁有高科技農業、現代的小規模企業化工業、寬鬆的政府福利制度、舒適的生活水準、穩定的貨幣以及對國際貿易的高度倚賴。丹麥是食品以及能源設備、農牧品出口大國。
+丹麥是世界上風力發電最發達的國家，擁有全球最大海運集團馬士基公司，名牌音響製造商B&O、玩具商樂高等企業。
+2008年國際金融危機導致丹麥克朗出現巨大的貶值壓力。為了維持匯率體系不變，丹麥央行不得不在當年10月把利率快速提高至5.5%，導致丹麥房價下跌超過20%，刺破了丹麥房地産泡沫。 2012年7月起實施負利率政策，以驅趕國外的避險資金。
+
+@76. ISLAX.OL
+Seafood Salmon in ISK
+冰島經濟主要依靠海洋漁業。漁業提供冰島60%的出口收入，僱用了8%的勞工人口。 冰島水力和地熱資源得天獨厚，能源工業非常發達，電力充沛，價格低廉。地熱利用開發技術全球獨有。
+2008年冰島面臨金融危機，三大銀行在1週內破產，冰島克朗兌歐元匯率狂跌40%，通膨率和利率躍升至18%，失業率從接近零漲至近10%，民眾生活水準急速下滑，整個國家陷入嚴重危機。冰島政府接管了包括冰島國家銀行在內的國內主要銀行。 冰島採用強硬的方式處理金融危機，包含拒絕紓困銀行，讓銀行直接倒閉，並進行全球規模最大的打銷民眾的抵押貸款債務。 由於冰島未加入歐元區，冰島不僅躲過歐債危機，冰島央行也能透過冰島克朗大幅貶值，藉此提振出口和觀光。
+
+@77. ICESEA.IC
+Iceland Seafood international in ISK
+
+@78. VanEck Egypt Index ETF (EGPT)
+Cannot find EGX30 in yahoo
+
+@79. CIBEY
+commerical bank for egypt
+
+@80. BVL.CR
+Banco de Venezuela SA
+Venezuela
+
+@81. EPU
+iShares MSCI Peru ETF
+
+@82. BVC.CL
+Bolsa de Valores de Colombia S.A.
+
+@83. ^MERV
+Argentina
+阿根廷指數（MERVAL Index）含列在布宜諾斯艾利斯交易所（Buenos Aires Stock Exchange）的主要公司股票， 為投資南美洲（拉丁美洲）的指標之一。
+阿根廷受益於豐富的自然資源、受過高等教育的眾多人口、出口導向的農業部門及多樣的工業基礎。 2002年，阿根廷無法償還債務，GDP滑落、失業率超過18%、披索貶值75%，情況在2005年有所好轉，但仍有大量的失業人口生活在社會的底層。 國際貨幣基金組織發布全球經濟增長預測報告，阿根廷經濟增長源於農業豐收，但其它經濟活動仍因匯率和其它行政控制受抑，阿根廷2013年消費者物價指數漲幅將超過10%。
+
+@84. M.BA
+Argentina
+
+@85. ^MXX
+墨西哥指數（Mexican Bolsa Index、Indice de Precios y Cotizaciones）含列墨西哥主要的上市公司股價， 也是投資南美洲（拉丁美洲）的重要指數之一。
+1994年1月1日，墨西哥正式加入北美自由貿易區，憑著北美自由貿易協定，10年內國內生產毛額增加1倍。高盛報告：墨西哥2050年將超越俄羅斯，成為全球第6大經濟體，國民所得達55,000美元的新興帝國。 近年來金融市場持續好傳，利率逐步下調，貨幣市場穩定，公共財政實現平衡並出現盈
+墨西哥為全球第6大產油國、第3大產銀國，另有外國投資開採銅、鐵、金、銀、鋅等礦產。 墨西哥至少有三分之二地區含有礦產，但僅20%被有效開採，顯示墨西哥礦業頗具發展潛力。
+
+@86. ^OMXH25
+Finland
+芬蘭指數（赫爾辛基指數、Helsinki Stock Exchange Index）統計所有在赫爾辛基交易所的上市公司股票，為北歐的主要股市之一。
+根據芬蘭經濟研究院（ETLA）的數據，1998至2007年間，芬蘭的成長有1/4來自Nokia。同一期間，Nokia的研發支出占全國30%，創造了近1/5的出口額，有時，更有高達23%的芬蘭企業稅收是來自Nokia。 然而隨著 Nokia 市佔率逐步下滑、甚至被微軟以72億美元買下，芬蘭經濟也隨之影響。 2012-2013年間，芬蘭約有100家銀行分支機構關閉，超過2000名銀行僱員失業，且裁員還將持續。
+2013年，芬蘭總理卡泰寧宣佈通過所有結構改革方案，消除預算中約100億歐元的福利安排，同時通過精簡機構職能、裁員2萬人削減市政開支20億歐元。
+
+@88. ^DJT
+Dow Jones Transportation Averag
+
+@89. ^INSR
+NASDAQ Insurance
+
+
+//58. ^GDMTR
+NYSE Arca Gold Miners Index (GT
+
+/59. ^GSPTSE
+
+//52. WIZAF.FGI
+南非屬於中等收入的發展中國家，也是非洲最大的經濟體，資源豐富，財經、法律、通訊、能源、交通業發達，完備的硬體建設和股票交易市場居全球前二十名。雖然南非是非洲內人均國內生產總值第四高的國家，卻依然被稱為發展中國家。
+
+南非共和國是世界礦產最豐富國家之一，目前其礦產額約為整個非洲之半，主要礦產如金、鉻、鑽石、白金等四種，生產量均佔世界第一位。 南非以貴金屬以及水果和葡萄酒等農產品聞名於世，現時已由農業和礦產主導的經濟體轉型為以成熟的製造業和服務業為基礎的經濟體。2013年第一季，服務業佔南非GDP約70%，而農業和礦業只分別佔該國經濟產出1.9%和4.9%。
+
+//53. FADGI.FGI
+Abu Dhabi oil 
+
+* Currency
+
+@1. USDTWD=X
+
+@2. CNYTWD=X
+
+@3. JPYTWD=X
+
+@4. HKDTWD=X
+
+@5. KRWTWD=X
+Koera
+
+@6. CADTWD=X
+
+@7. BRLTWD=X
+Brazil
+
+@8. AUDTWD=X
+
+@9. GBPTWD=X
+Greater British
+
+@10. NZDTWD=X
+
+@11. CHFTWD=X
+Convert Swiss franc
+
+@12. VNDTWD=X
+vietnanese
+
+@13. IDRTWD=X
+Indonesian Rupiah 
+
+@14. MOPTWD=X
+Macau Macanese Pataca
+
+@15. SGDTWD=X
+singapore
+
+@16. EURTWD=X
+europe
+
+@17. THBTWD=X
+thailand
+
+@18. MYRTWD=X
+malaysia
+
+@19. MXNTWD=X
+maxico
+
+@20. ZARTWD=X
+South African Rand
+
+@21. INRTWD=X
+India
+
+@22. RUBUSD=X
+Russian to usd
+
+@23. SEKUSD=X
+sweden to usd
+
+@24. BGNUSD=X
+Belgium to usd
+
+@25. HUFUSD=X
+Hungary to usd
+
+@26. NOKUSD=X
+Norman to usd
+
+@27. DKKUSD=X
+Denmark to usd
+
+@28. PLNUSD=X
+Polish
+
+* RAW
+
+@1. CL=F
+NewYork Crude Oil
+
+@2. HO=F
+Heating Oil
+
+@3. NG=F
+Natural Gas 
+
+@4. GC=F
+Gold
+
+@5. SI=F
+Silver
+
+@6. PL=F
+Platinum
+
+@7. HG=F
+Copper
+
+@8. PA=F
+Palladium 
+
+@9. ZC=F
+Corn Futures
+
+@10. ZR=F
+Rough Rice Futures
+
+@11. ZS=F
+Soybean Futures
+
+@12. HE=F
+Lean Hogs Futures
+
+@13. LE=F
+Live Cattle Futures
+
+@14. CC=F
+Cocoa 
+
+@15. KC=F
+Coffee 
+
+@16. OJ=F
+Orange Juice
+
+@17. SB=F
+Sugar #11
+
+@18. LBS=F
+Random Length Lumber Futures
+
+@19. CT=F
+Cotton 
+
+//. CRB
+CoreCommodity CRB Index
+
+* Crypo-Currency
+
+@41. BTC-USD
+
+@42. ETH-USD
+
+@43. BNB-USD
+
+@44. STETH-USD
+
+@45. XRP-USD
+
+@46. ADA-USD
+
+@47. DOGE-USD
+
+@48. TRX-USD
+TRON USD (TRX-USD)
+
+## Company
+
+* 水泥
+@1. CBUMF
+China National Building Material Company Limited
+
+@2. HCMLF
+Holcim Ltd
+
+* 食品
+
+@3. NESM.SG
+Nestle S.A. Switzerland
+
+@4. PEP
+PepsiCo, Inc. United States
+
+@6. KO
+Coca-Cola Co Food, United States
+
+@10. 600519.SS
+Kweichow Moutai Co., Ltd. Class A China
+
+* 塑膠
+
+@15. TRYIY
+Toray Industries, Inc Chuo City, Tokyo, Japan
+
+@18. VFC
+V.F. Corporation USA
+
+* 電機
+
+@19. ENLAY
+Enel SpA USA Rome
+
+@20. EONGY
+E.ON SE Germany
+
+@21. TKECY
+Tokyo Electric Power Co. Holdings (TKECY)
+
+* 電器
+
+@23. WHR
+Whirlpool Corporation USA
+
+@26. 000333.SZ
+Midea Group CN
+
+* 化生biochemistry
+
+@28. MPC
+#2011
+Marathon Petroleum Corporation
+
+@29. CRTSF
+#2012
+Chr. Hansen Holding A/S
+
+@30. SHEL
+Shell USA
+
+* 化學biotech
+
+@31. BASFY
+BASF SE USA
+
+@32. 600871.SS
+Sinopec Shanghai Petrochemical Co Ltd
+
+* 生技
+
+@35. BNTX
+#short
+BioNTech SE (BNT)  German 
+
+@36. MRNA
+#short
+Moderna, Inc Cambridge
+
+@38. VRTX
+Vertex Pharmaceuticals Incorporated USA
+
+* 玻璃
+
+@39. GLW
+Corning Incorporated USA
+
+@41. 600660.SS
+fuyao glass industry (CN)
+
+@42. 5201.T
+AGC Glass Company  Asahi Glass Co., Ltd. from Japan
+
+* 造紙
+
+@43. CENTURYTEX.NS
+Century Textiles and Industries Limited (India)
+
+@45. WSTCSTPAPR.NS
+West Coast Paper Mills Limited
+
+* 鋼鐵
+
+@46. NUE
+Nucor Corporation USA
+
+@47. PKX
+POSCO Holdings Inc.S. Korea
+
+@48. JSWSTEEL.NS
+JSW Steel Limited India
+
+@49. MT
+ArcelorMittal S.A. Luxembourg
+
+@50. 600019.SS
+China Baowu Steel Group Corp Ltd
+
+* 橡膠
+
+@51. CON.DE
+Continental Aktiengesellschaft Germany
+
+@52. 5108.T
+Bridgestone Corp jap
+
+* 汽車
+
+@53. TSLA
+Tesla
+
+@54. MBG.DE
+Mercedes-Benz Group AG German
+
+@55. TM
+or TM for USA stock
+Toyota Motor Corporation
+
+@56. BMW.DE
+Bayerische Motoren Werke Aktiengesellschaft
+
+@57. PAH3.DE
+Porsche Automobil Holding SE
+
+@60. FORD
+FORD
+
+@61. 005380.KS
+hyundai motor
+
+@62. BYDDY
+BYD Company Limited
+BYD Company Limited (002594.SZ)
+
+電子
+@63. 
+Apple inc. USA
+
+@
+Microsoft
+
+@64.
+Samsung SK
+
+@65.
+Huawei CN
+
+@68.
+Sony jp
+
+@69. 
+Panasonic
+
+半導
+
+@
+Qualcomm QCOM
+
+@
+Broadcom Inc. (AVGO)
+
+@
+#6 NVIDIA Corp. (NVDA)
+
+@
+Cadence
+
+@
+Mediatek
+
+電腦
+
+@
+Lenovo
+
+@ 
+HP
+
+光電
+@
+Pepperl+Fuchs Germany
+
+@
+SICK Germany
+
+通信
+
+@
+AT&T Inc. (T)
+
+@
+#5 Nippon Telegraph & Telephone Corp. (NTTYY)
+
+* 電零
+@
+Texas Instruments Inc
+
+@
+Arrow Electronics
+
+* 通路
+@
+5. Wesco International (NYSE:WCC)
+
+@.
+4. W.W. Grainger (NYSE:GWW)
+
+* 資服
+@
+Airspeed
+
+@
+Seagate Technology
+
+* 他電
+@
+Amazon
+
+@
+Netfix
+
+* 營建
+@
+ACS Actividades de Construcción y Servicios S.A. spain
+
+@
+China Communications Construction Group Ltd. CN
+
+* 航運
+@
+Mediterranean Shipping Company – MSC italy
+
+@
+COSCO Shipping Lines China
+
+* 觀光
+@
+Expedia Group
+
+@
+Booking Holdings
+
+* 金融 Finance
+
+@
+Visa Inc. V
+
+@ 
+JPMorgan Chase & Co JPM
+
+@
+Industrial and Commercial bank of China ICBC
+
+
+* 貿易
+@ 
+Amazon
+
+@
+Alibaba
+
+* 油電
+@
+Saudi Arabian Oil Co
+
+@
+China Petroleum & Chemical Corp. 
+
+* other Transport
+
+@
+UPS
+
+@
+DHL
+
+@
+uber 
+
+@
+foodpanda
+
+
+Index Country
+Currency
+Raw
+Crypo-Currency
+
+水泥
+食品
+塑膠
+紡織
+電機
+電器
+化生
+化學
+生技
+玻璃
+造紙
+鋼鐵
+橡膠
+汽車
+電子
+半導
+電腦
+光電
+通信
+電零
+通路
+資服
+他電
+營建
+航運
+觀光
+金融
+貿易
+油電
+其他 
+
+
+##  Blue Chip
+蓝筹股- 维基百科，自由的百科全书
+https://zh.wikipedia.org › zh-hant
+·
+Translate this page
+藍籌股（Blue chip），又稱績優股、權值股，指在某一行業中處於重要支配地位、業績優良、交易活躍、公司知名度高、市值大、公司經營者可信任、營收獲利穩定、每年固定分配股利、紅利
+
+## Red chip
+Red chip shares, also known as red chip stocks, are the shares of mainland China companies that are listed in the Hong Kong Stock Exchange. These companies are incorporated outside mainland China.
+
+## Hungarian Forints
+1 Hungarian Forint equals 0.0029 United States Dollar
