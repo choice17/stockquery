@@ -17,6 +17,8 @@ import matplotlib.pyplot as plt
 
 #Next we need to create a base class that will load the .ui file in the constructor. It will need to call the __init__ method of the inherited class, load the .ui file into the current object and then show the window.
 #https://nitratine.net/blog/post/how-to-import-a-pyqt5-ui-file-in-a-python-gui/
+#Open ui 
+# $ pyqt5-tools designer
 
 MAIN = "gui/main.ui"
 STOCKDIR = "stock"
@@ -65,10 +67,20 @@ class MplCanvas(FigureCanvasQTAgg):
         assert parent is not None
         w = frameWidget.width()
         h = frameWidget.height()
-        fig = Figure(figsize=(w, h), dpi=dpi)
-        self.axes = fig.add_subplot(111)
-        super(MplCanvas, self).__init__(fig)
+        self.fig = Figure(figsize=(w, h), dpi=dpi)
+        self.axes = self.fig.add_subplot(111)
+        self.dataSet = False
+        super(MplCanvas, self).__init__()
 
+    # def on_scroll(self, event):
+    #     if self.dataSet:
+    #         #print(event.button, event.step)
+    #         increment = 1 if event.button == 'up' else -1
+    #         max_index = self.X.shape[-1] - 1
+    #         self.index = np.clip(self.index + increment, 0, max_index)
+    #         self.update()
+
+        #fig.canvas.mpl_connect('scroll_event', tracker.on_scroll)
 class Ui(QtWidgets.QMainWindow):
     def __init__(self):
         super(Ui, self).__init__() # Call the inherited classes __init__ method
@@ -141,18 +153,26 @@ class Ui(QtWidgets.QMainWindow):
             dx = data.index.to_pydatetime()
             dx = np.array(list(map(lambda x : x.date(), dx)))
 
-            self.frame.axes.plot(dx, dy)
-            self.frame.axes.grid()
-            #self.frame.axes.set_xticks(rotation=60)
-            self.frame.axes.tick_params(axis='x', labelrotation=60)
-            #self.frame.axes.xaxis.label.set("date", rotation=60)
             if not self.frameInit:
+                self.frame.axes.plot(dx, dy)
+                self.frame.axes.grid()
+                #self.frame.axes.set_xticks(rotation=60)
+                self.frame.axes.tick_params(axis='x', labelrotation=60)
                 toolbar = NavigationToolbar(self.frame, self)
                 self.layoutStockDisplay.addWidget(toolbar)
                 self.frameInit = True
                 self.layoutStockDisplay.addWidget(self.frame)
-               
-
+            else:
+                self.frame.axes.cla()
+                self.frame.axes.plot(dx, dy)
+                self.frame.axes.relim()
+                self.frame.axes.autoscale()
+                self.frame.axes.grid()
+                self.frame.draw()
+                # self.ax[i].set_ylim(0, y.max())
+                # self.bx[i].set_ydata(self.data[i][1])
+                # self.ax[i].set_ylabel(self.data[i][0])
+            self.info(f"Max {np.max(dy)}, Min {np.min(dy)}")
         return _info
 
     def setupDropDownMenu(self):
