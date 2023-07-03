@@ -65,12 +65,108 @@ class MplCanvas(FigureCanvasQTAgg):
 
     def __init__(self, parent, frameWidget, dpi=100):
         assert parent is not None
-        w = frameWidget.width()
-        h = frameWidget.height()
-        self.fig = Figure(figsize=(w, h), dpi=dpi)
+        self.w = frameWidget.width()
+        self.h = frameWidget.height()
+        self.fig = Figure(figsize=(self.w, self.h), dpi=dpi)
         self.axes = self.fig.add_subplot(111)
         self.dataSet = False
-        super(MplCanvas, self).__init__()
+        super(MplCanvas, self).__init__(self.fig)
+        self.zoom_scale = 0.9
+        self.pan_scale = 0.3
+        self.xlim = [-1, -1]
+        self.xlimSet = False
+
+
+    def zoom(self, event):
+        '''This function zooms the image upon scrolling the mouse wheel.
+        Scrolling it in the plot zooms the plot. Scrolling above or below the
+        plot scrolls the x axis. Scrolling to the left or the right of the plot
+        scrolls the y axis. Where it is ambiguous nothing happens. 
+        NOTE: If expanding figure to subplots, you will need to add an extra
+        check to make sure you are not in any other plot. It is not clear how to
+        go about this.
+        Since we also want this to work in loglog plot, we work in axes
+        coordinates and use the proper scaling transform to convert to data
+        limits.'''
+
+        x = event.x
+        y = event.y
+
+        if self.xlimSet == False:
+            self.xlim = self.axes.get_xlim()
+            self.xlimSet = True
+
+        #convert pixels to axes
+        tranP2A = self.axes.transAxes.inverted().transform
+        #convert axes to data limits
+        tranA2D= self.axes.transLimits.inverted().transform
+        #convert the scale (for log plots)
+        tranSclA2D = self.axes.transScale.inverted().transform
+
+        if event.button == 'down':
+            # deal with zoom in
+            scale_factor = self.zoom_scale
+        elif event.button == 'up':
+            # deal with zoom out
+            scale_factor = 1 / self.zoom_scale
+        else:
+            # deal with something that should never happen
+            scale_factor = 1
+
+        #pan
+        #get my axes position to know where I am with respect to them
+        xa,ya = tranP2A((x,y))
+        zoomx = False
+        zoomy = False 
+        if(ya < 0):
+            if(xa >= 0 and xa <= 1):
+                zoomx = True
+                zoomy = False
+        elif(ya <= 1):
+            if(xa <0): 
+                zoomx = False
+                zoomy = True
+            elif(xa <= 1):
+                zoomx = True
+                zoomy = True
+            else:
+                zoomx = False
+                zoomy = True
+        else:
+            if(xa >=0 and xa <= 1):
+                zoomx = True
+                zoomy = False
+
+        # Only Zoom X
+        zoomy = False
+        new_alimx = (0,1)
+        new_alimy = (0,1)
+        if(zoomx):
+            new_alimx = (np.array([1,1]) + np.array([-1,1])*scale_factor )*.5
+        if(zoomy):
+            new_alimy = (np.array([1,1]) + np.array([-1,1])*scale_factor)*.5
+
+        #now convert axes to data
+        new_xlim0,new_ylim0 = tranSclA2D(tranA2D((new_alimx[0],new_alimy[0])))
+        new_xlim1,new_ylim1 = tranSclA2D(tranA2D((new_alimx[1],new_alimy[1])))
+
+        _new_xlim0 = new_xlim0
+        _new_xlim1 = new_xlim1 
+        if 1:
+            dx = (xa - 0.5)*(self.pan_scale)
+            xlimRange = new_xlim1 - new_xlim0
+            _new_xlim0 = new_xlim0 + dx * xlimRange
+            _new_xlim1 = new_xlim1 + dx * xlimRange
+            if _new_xlim0 <= self.xlim[0]:
+                _new_xlim0 = self.xlim[0]
+            if _new_xlim1 >= self.xlim[1]:
+                _new_xlim1 = self.xlim[1]
+
+        #and set limits debug
+        # print([x, xa, dx], [new_xlim0, new_xlim1], [_new_xlim0, _new_xlim1])
+        self.axes.set_xlim([_new_xlim0,_new_xlim1])
+        #self.axes.set_ylim([new_ylim0,new_ylim1])
+        self.draw()
 
     # def on_scroll(self, event):
     #     if self.dataSet:
@@ -151,8 +247,8 @@ class Ui(QtWidgets.QMainWindow):
 
             dy = data["Open"].to_numpy()
             dx = data.index.to_pydatetime()
-            dx = np.array(list(map(lambda x : x.date(), dx)))
-
+            #dx = np.array(list(map(lambda x : x.date(), dx)))
+            self.frame.xlimSet = False
             if not self.frameInit:
                 self.frame.axes.plot(dx, dy)
                 self.frame.axes.grid()
@@ -172,7 +268,9 @@ class Ui(QtWidgets.QMainWindow):
                 # self.ax[i].set_ylim(0, y.max())
                 # self.bx[i].set_ydata(self.data[i][1])
                 # self.ax[i].set_ylabel(self.data[i][0])
-            self.info(f"Max {np.max(dy)}, Min {np.min(dy)}")
+            fig = self.frame.axes.get_figure()
+            self.frame.xlim = [dx[0].timestamp(), dx[-1].timestamp()]
+            fig.canvas.mpl_connect('scroll_event', self.frame.zoom)
         return _info
 
     def setupDropDownMenu(self):
