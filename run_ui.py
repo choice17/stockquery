@@ -20,13 +20,7 @@ import matplotlib.pyplot as plt
 #Open ui 
 # $ pyqt5-tools designer
 
-MAIN = "gui/main.ui"
-STOCKDIR = "stock"
-STOCKCATEGORY = {i:[] for i in os.listdir(STOCKDIR) if os.path.isdir(STOCKDIR+"/"+i)}
-STOCKCACHE = defaultdict(lambda : None)
-ISSTOCKCACHE = True
-TIMEZONE = 'Asia/Taipei'
-
+from define import *
 
 class _LOG:
     def __init__(self):
