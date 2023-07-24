@@ -6,6 +6,7 @@ from log import Log
 from tqdm import tqdm as Pbar
 from datetime import datetime as DT
 import pytz
+import shutil
 
 from define import *
 
@@ -35,7 +36,9 @@ def collect_tw_list(parent):
     twList = []
     pattern = parent+"/*/*.pickle"
     res = glob.glob(pattern)
-    for i in Pbar(res, desc="Loading tw list"):
+    pbar = Pbar(res, desc="Loading tw list")
+    for i in pbar:
+        pbar.set_description(f"Processing {i}")
         if "deps" in i:
             continue
         assert os.path.exists(i)
@@ -45,7 +48,21 @@ def collect_tw_list(parent):
     return twList
 
 def trim(df, timestamp):
-    return df
+    ti = timestamp
+    ind = np.where(ti >= 0)[0][0]
+    #Log.info(ind.shape)
+    #[0]
+    if ind > 0:
+        start = df.index[0]
+        df = df[ind:]
+        trimed = df.index[0]
+        Log.info(f"TRIM {Log.logger} from {start} to {trimed}")
+    return df, ind
+
+DBG = 1
+def dbg(*args):
+    if DBG:
+        print(f"[DBG] {args}")
 
 def expand_nil(dat, method='repeat'):
     """
@@ -57,13 +74,18 @@ def expand_nil(dat, method='repeat'):
     dx = dat.index
     ti = np.array(list(map(lambda x: x.timestamp(), dx)))
 
-    trim(dat, ti)
+    dat, trimInd = trim(dat, ti)
+
+    if trimInd:
+        ti = ti[trimInd:]
 
     dt = (ti[1:]-ti[:-1]) - ONEDAYSEC
-    boolDt = dt != 0
+    boolDt = dt > 1000
     start, end = ti[0], ti[-1]
+
     totalDays = int((end - start) / ONEDAYSEC + 0.5) + 1
-    
+    #dbg(f"total days {totalDays}, {len(boolDt)} {len(dx)} // {start}, {end}, {(end - start) / ONEDAYSEC} {totalDays}")
+    #print(dat.iloc[-10:])
     assert totalDays >= 0, f"Error in expand_nil {start}, {end}, {totalDays}, date0:{dx[0]}, date1:{dx[1]}"
 
     dy = np.array(dat)
@@ -134,7 +156,7 @@ def convert_time(df, dateOrig = 'tw'):
     df.index.tz_convert(TIMEZONE).to_pydatetime()
     return df
 
-def process_data(dfList):
+def process_nil_data(dfList, key=""):
 
     # convert date time to same time zone - default tw
     for path, df in dfList:
@@ -145,25 +167,108 @@ def process_data(dfList):
     pbar = Pbar(dfList, desc="expand nil...")
     for dat in pbar:
         path, df = dat
-        pbar.set_description(f"Processing {path}")
+        Log.logger = path
+        pbar.set_description(f"Processing {key} - {path}")
         expandDat = expand_nil(df)
         dfList[ind] = [path, expandDat]
         ind += 1
 
     return dfList
 
+def debugCache(datList):
+    twList = datList[TWDAT]
+    for path, df in twList:
+        Log.info(f"{path} {df.index[0]} --> {df.index[-1]}")
+
+def check_stage1_cache(cache=True):
+    dat = {}
+    if not cache:
+        return dat
+    cacheMarkerList = glob.glob(STAGE1_MARKER + "*")
+    cacheDataPath = STAGE1_CACHE
+    if cacheMarkerList != []:
+        cacheMarkerList.sort()
+        cacheMarker = cacheMarkerList[-1]
+        date = cacheMarker.split("_")[1]
+        cacheDataPath += date
+        if os.path.exists(cacheDataPath):
+            Log.info(f"Found Stage-1 cache marker {cacheMarker} ... loading {cacheDataPath}...")
+            dat = pl.loads(open(cacheDataPath,"rb").read())
+            #debugCache(dat)
+        #exit()
+    else:
+        Log.info("No cache found for Stage-1")
+    return dat
+
+def cache_stage1(datList, save_cache=True, update_cache=False):
+
+    if not save_cache:
+        return
+
+    if save_cache and update_cache:
+        cacheMarkerList = glob.glob(STAGE1_MARKER + "*")
+        for marker in cacheMarkerList:
+            date = marker.split("_")[1]
+            cacheDataPath = STAGE1_CACHE + date
+            os.remove(marker)
+            os.remove(cacheDataPath)
+            Log.info(f"Removing cache {marker}")
+
+    quote, df = datList[TWDAT][0]
+    date = df.index[-1]
+    datestr = str(date.date())
+    dst = STAGE1_CACHE + datestr
+    marker = STAGE1_MARKER + datestr
+    Log.info(f"Caching data for Stage-1 to {dst} with {marker} from {quote} ...")
+
+    with open(dst, "wb") as f:
+        pl.dump(datList, f)
+
+    with open(marker, "w") as f:
+        pass
+
+def check_stage2_cache(isCheck):
+    return
+
+
+def generate_training_data_1week(dataList):
+    dataSize = [5, 224, 224]
+
+
+def generate_training_data_1day(dataList):
+    dataSize = [5, 224, 224]
+
+def generate_training_data_category(dataList):
+    dataSize = [5, 224, 224]
+
+
 def main():
 
     parentTw = "stock"
     parentDeps = "stock"
 
-    twList = collect_tw_list(parentTw)
-    depsList = collect_deps_list(parentDeps)
+    ## stage 1 process nil data
+    isCheckStage1Cache = True
+    isSaveStage1Cache = True
+    isUpdateStage1Cache = True
+    isCheckStage2Cache = False
 
-    depsList = process_data(depsList)   
-    twList = process_data(twList)
-    
+    datList = check_stage1_cache(isCheckStage1Cache)
+    if datList == {}:
+        twList = collect_tw_list(parentTw)
+        depsList = collect_deps_list(parentDeps)
 
+        depsList = process_nil_data(depsList, "DEPS")   
+        twList = process_nil_data(twList, "TW")
+
+        datList = {TWDAT: twList, DEPDAT: depsList}
+        cache_stage1(datList, isSaveStage1Cache, isUpdateStage1Cache)
+
+
+    ## stage 2 generate training data
+    stage2Dat = check_stage2_cache(isCheckStage2Cache)
+    if stage2Dat == {}:
+        generate_training_data(datList)
 
     dataSize = [3, 224, 224] # open,close,vol
 
