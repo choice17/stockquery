@@ -230,13 +230,36 @@ def cache_stage1(datList, save_cache=True, update_cache=False):
 def check_stage2_cache(isCheck):
     return
 
-
 def generate_training_data_1week(dataList):
     dataSize = [5, 224, 224]
 
-
 def generate_training_data_1day(dataList):
     dataSize = [5, 224, 224]
+    targetSize = [5, 224]
+
+    cdq = CACHE_DATA_Query(dataList)
+    STAGE2_DIR = 'train'
+    STAGE2_DIR_1DAT = 'train/oneday'
+
+    os.makedir(STAGE2_DIR_1DAT)
+    for key, item in cdq.cq.symbolCategoryMap.items():
+        symbol, cat = key, item
+        path = STAGE2_DIR_1DAT + "/" + cat + "/" + symbol
+
+        if not os.path.exists(path):
+            os.makedir(path)
+
+        ## skip between 1-2weeks 
+        ## randomize crop date
+        # get df of symbol
+        # get start, end date of symbol
+        # for loop start from begin
+        #   date += random next date
+        #   data = cdq next_data()
+        #   normalizedData = normalize_data_strategy_one(data)
+        #   img1.pl = {"dat": [5,224,224], "symbol" : "", "<cat>", "begin":[5,224], "target":[5,224]}
+        #   dump(img1.pl, dst)
+
 
 def generate_training_data_category(dataList):
     dataSize = [5, 224, 224]

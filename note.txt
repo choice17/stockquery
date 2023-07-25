@@ -1,0 +1,51 @@
+TODO
+1. stockq
+select stock index 
+a. country/region
+b. raw material/ resource (metal, mine, farm, gas)
+c. energy (eco-friendly)
+d. S&P500/...davidjones, neikei255, hsbc...
+e. money (USD, JPD, HKD, RMD, KRD, AUD, EUR, GBP(bitish))
+
+
+
+2. make category of stock / company
+
+
+
+
+ETF
+1. ETF 指數型 高股息 / 基金
+2. 留意除權日
+
+
+# 現金殖利率
+
+投資股票尤其是除權息旺季時（每年 6~9 月，尤其是 7、8 月)，殖利率就會是一個大家都在關注的議題了。舉例來說，如果台積電股價是 100 元，即將配息 3 元，它的殖利率即為 3% 。
+
+通常現金殖利率大於 4% 就稱為高殖利率。長期持有股票的投資人，通常用現金殖利率，來衡量一間公司目前的股價貴不貴，值不值得買進來每年領取股利。買入後好幾年內都不會賣出，所以不在乎股價，只在乎每年能夠配多少現金股利。
+
+4 步驟找出高殖利率股票
+因為公司穩定，所以長期持有的投資人只要不缺錢，就會把領取的股利，拿去再買殖利率高的股票！找出高殖利率好體質股的 4 指標：
+
+現金殖利率 > 4%
+近 3 年現金股利 不曾衰退
+負債比 < 40%
+速動比 > 200%
+
+3. Current index
+
+@tw target stock 5 open close high low volumne
+@tw 42 company
+@company 55
+@Country/Index=82
+@Currency=15
+@Raw=19
+@Crypo-Currency=7
+
+
+
+4. qt
+pyQt5
+qt designer
+https://doc.qt.io/qt-5/gettingstarted.html#offline-installation

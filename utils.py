@@ -116,9 +116,11 @@ class CACHE_Single_Query(object):
 
 	def __init__(self, cache):
 		self.dat = cache
+		self.build_index()
 
 	def build_index(self):
 		self.indexMap = {}
+		self.depsList = []
 
 		ind = 0
 		for pair in self.dat[TWDAT]:
@@ -134,6 +136,7 @@ class CACHE_Single_Query(object):
 			splits = path.split(DELIMITER)
 			cat, symbol = splits[1], splits[2][:-7]
 			self.indexMap[symbol] = [DEPDAT, ind, cat, path]
+			self.depsList.append(symbol)
 			ind += 1
 
 
@@ -155,10 +158,15 @@ class CACHE_Single_Query(object):
 			exit(1)
 
 		path, df =  self.dat[dataSection][ind]
+		
+		timeInd = df.index
+		_, startInd = closest_value_index(timeInd, start)
+		_, endInd = closest_value_index(timeInd, end)
 
-		return df
+		dfOut = df.iloc[startInd:endInd]
+		return dfOut
 
-class TOP6_Query(object):
+class TOP5_Query(object):
 
 	def __init__(self, cacheFile, cacheQueryer, datSize = TOP_SIZE, imgSize = IMG_SIZE):
 		log("Loading top6 info...")
@@ -179,7 +187,7 @@ class TOP6_Query(object):
 			self.top6Dict[cat].append(symbol)
 			self.symbolCategoryMap[symbol] = cat
 
-	def query_one_top6(self, symbol, start, end, img)
+	def fill_one_period_top5(self, symbol, start, end, img)
 		"""
 		@desc : query one set of symbol data with dataSize by start and end time in python datetime number
 		@symbol[in] : string 
@@ -190,23 +198,78 @@ class TOP6_Query(object):
 		assert img.shape == IMG_SIZE
 		cat = self.symbolCategoryMap[symbol]
 		symbolList = [symbol] + [i for i in self.top6Dict[cat] if i != symbol]
-		top6 = 6
-		for ind in range(top6):
+		top5 = 5
+		for ind in range(top5):
 			sym = symbolList[ind]
-			#
-			pass
+			dat = self.cq.query_single_symbol_df_time(sym, start, end)
+			img[:, ind, :] = np.array(dat)
+		return
 			
+
+	def fill_one_period_top5_target_one_day(self, symbol, start, end, img, target):
+		pass
+
+	def fill_one_period_top5_target_one_week(self, symbol, start, end, img, target):
+		pass
+
+	def fill_one_period_top_target_category(self, symbol, start, end, img, target):
+		pass
+
 
 class DEPS_Query(object):
 
-	def __init__(self, cacheFile, cacheQueryer, datSize = BOTTOM_SIZE, imgSize = imgSize = IMG_SIZE):
+	def __init__(self, cacheFile, cacheQueryer, datSize = BOTTOM_SIZE, imgSize = IMG_SIZE):
 		log(f"Loading deps info ...")
 		self.dat = cacheFile
 		self.cq = cacheQueryer
 
-	def query_one_deps(self, start, end, img):
+	def fill_one_period_deps(self, start, end, img):
+		assert img.shape == IMG_SIZE, "image shape is not expected"
+		assert len(self.cq.depsList) == DEPS_DEPTH, "deps shape is not expected"
+		ind = 5
+		for sym in self.cq.depsList:
+			dat = self.cq.query_single_symbol_df_time(sym, start, end)
+			npDat = np.array(dat)
+			w = npDat.shape[1]
+			if w < STOCK_DEPTH:
+				img[:, ind, STOCK_DEPTH-w:] = npDat
+			else:
+				img[:, ind, :] = npDat
+			ind += 1
+
+	def fill_one_period_period_target_one_day(self, symbol, start, end, img, target):
 		pass
 
+	def fill_one_period_period_target_one_week(self, symbol, start, end, img, target):
+		pass
+
+	def fill_one_period_period_target_category(self, symbol, start, end, img, target):
+		pass
 
 class CACHE_DATA_Query(object):
-	pass
+
+	def __init__(self, cacheData):
+		self.cache = cacheData
+		self.cq = CACHE_Single_Query(cacheData)
+		self.top5Query = TOP5_Query(cacheData, self.cq)
+		self.depsQuery = DEPS_Query(cacheData, self.cq)
+
+	def fill_one_period(self, symbol, start, end, img)
+		self.top5Query.fill_one_period_top5(symbol, start, end, img)
+		self.depsQuery.fill_one_period_deps(symbol, start, end, img)
+		return
+
+	def fill_one_period_target_one_day(self, symbol, start, end, img, target)
+		self.top5Query.fill_one_period_top5_target_one_day(symbol, start, end, img, target)
+		self.depsQuery.fill_one_period_deps_target_one_day(symbol, start, end, img, target)
+		return
+
+	def fill_one_period_target_one_week(self, symbol, start, end, img, target)
+		self.top5Query.fill_one_period_top5_target_one_week(symbol, start, end, img, target)
+		self.depsQuery.fill_one_period_deps_target_one_week(symbol, start, end, img, target)
+		return
+
+	def fill_one_period_target_category(self, symbol, start, end, img, target)
+		self.top5Query.fill_one_period_top5_target_category(symbol, start, end, img, target)
+		self.depsQuery.fill_one_period_deps_target_category(symbol, start, end, img, target)
+		return
