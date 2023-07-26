@@ -8,6 +8,7 @@ from log import *
 from collections import Queue, defaultdict
 from define import *
 import pickle as pl
+import random
 
 class _Day(object):
 
@@ -112,7 +113,7 @@ def closest_value_index(input_list, input_value):
 	i = (np.abs(arr - input_value)).argmin()
 	return arr[i], i
 
-class CACHE_Single_Query(object):
+class CacheSingleQuery(object):
 
 	def __init__(self, cache):
 		self.dat = cache
@@ -166,7 +167,24 @@ class CACHE_Single_Query(object):
 		dfOut = df.iloc[startInd:endInd]
 		return dfOut
 
-class TOP5_Query(object):
+	def query_single_symbol_df_time_with_one_day_target(self, symbol, start, end):
+		try:
+			dataSection, ind, _, _ = self.indexMap[symbol]
+		except KeyError:
+			log(f"Cannot find {symbol} in cache!")
+			exit(1)
+
+		path, df =  self.dat[dataSection][ind]
+		
+		timeInd = df.index
+		_, startInd = closest_value_index(timeInd, start)
+		_, endInd = closest_value_index(timeInd, end)
+
+		dfOut = df.iloc[startInd:endInd]
+		tarOut = df.iloc[endInd+1]
+		return dfOut
+
+class Top5Query(object):
 
 	def __init__(self, cacheFile, cacheQueryer, datSize = TOP_SIZE, imgSize = IMG_SIZE):
 		log("Loading top6 info...")
@@ -207,7 +225,28 @@ class TOP5_Query(object):
 			
 
 	def fill_one_period_top5_target_one_day(self, symbol, start, end, img, target):
-		pass
+		"""
+		@desc : query one set of symbol data with dataSize by start and end time in python datetime number
+		@symbol[in] : string 
+		@start[in] : linux datetime number request period start time
+		@end[in] : linux datetime number request period end time
+		@img[out] : DEPTH x QUERY_SIZE x DATE_DEPTH
+		@target[out] : DEPTH X QUERY_SIZE
+		"""
+		assert img.shape == IMG_SIZE
+		cat = self.symbolCategoryMap[symbol]
+		symbolList = [symbol] + [i for i in self.top6Dict[cat] if i != symbol]
+		top5 = 5
+		for ind in range(top5):
+			sym = symbolList[ind]
+			dat, tar = self.cq.query_single_symbol_df_time_with_one_day_target(sym, start, end)
+			npDat = np.array(dat)
+			if w < STOCK_DEPTH:
+				img[:, ind, STOCK_DEPTH-w:] = npDat
+			else:
+				img[:, ind, :] = np.array(dat)
+			target[:, ind] = np.array(tar)
+		return
 
 	def fill_one_period_top5_target_one_week(self, symbol, start, end, img, target):
 		pass
@@ -215,8 +254,7 @@ class TOP5_Query(object):
 	def fill_one_period_top_target_category(self, symbol, start, end, img, target):
 		pass
 
-
-class DEPS_Query(object):
+class DepsQuery(object):
 
 	def __init__(self, cacheFile, cacheQueryer, datSize = BOTTOM_SIZE, imgSize = IMG_SIZE):
 		log(f"Loading deps info ...")
@@ -238,7 +276,20 @@ class DEPS_Query(object):
 			ind += 1
 
 	def fill_one_period_period_target_one_day(self, symbol, start, end, img, target):
-		pass
+		assert img.shape == IMG_SIZE, "image shape is not expected"
+		assert len(self.cq.depsList) == DEPS_DEPTH, "deps shape is not expected"
+		ind = 5
+		for sym in self.cq.depsList:
+			dat, tar = self.cq.query_single_symbol_df_time_with_one_day_target(sym, start, end)
+			npDat = np.array(dat)
+			tarDat = np.array(tar)
+			w = npDat.shape[1]
+			if w < STOCK_DEPTH:
+				img[:, ind, STOCK_DEPTH-w:] = npDat
+			else:
+				img[:, ind, :] = npDat
+				target[:, ind] = np.array(tar)
+			ind += 1
 
 	def fill_one_period_period_target_one_week(self, symbol, start, end, img, target):
 		pass
@@ -246,11 +297,11 @@ class DEPS_Query(object):
 	def fill_one_period_period_target_category(self, symbol, start, end, img, target):
 		pass
 
-class CACHE_DATA_Query(object):
+class CacheDataQuery(object):
 
 	def __init__(self, cacheData):
 		self.cache = cacheData
-		self.cq = CACHE_Single_Query(cacheData)
+		self.cq = CacheSingleQuery(cacheData)
 		self.top5Query = TOP5_Query(cacheData, self.cq)
 		self.depsQuery = DEPS_Query(cacheData, self.cq)
 
@@ -273,3 +324,45 @@ class CACHE_DATA_Query(object):
 		self.top5Query.fill_one_period_top5_target_category(symbol, start, end, img, target)
 		self.depsQuery.fill_one_period_deps_target_category(symbol, start, end, img, target)
 		return
+
+
+class RandomPeriodGenerator(object):
+
+	def __init__(self, start, end, skipPeriod=7, randomRate=0.3, includeStart=False):
+		"""
+		@desc return generator of random period date the skip period = skipPeriod + (int) randomRate * (random()[0-1] - 0.5) * skipPeriod
+		@start[in] period start date
+		@end[in] period end date
+		@skipPeriod[in] unit : days, control the skip period default 7 days
+		@randomRate[in] range : [0 - randomRate] 
+		"""
+		self.start = start
+		self.end = end
+		self.skip = skipPeriod
+		self.rate = randomRate
+		self.includeStart = includeStart
+
+	def getRandom(self):
+		randomness = int(self.rate * (random.randn() - 0.5) * self.skip)
+		return randomness
+
+	def getRandomDate(self):
+		period = self.skip + self.getRandomDate()
+		return period
+
+	def __call__(self):
+		start = self.start 
+		if self.includeStart:
+			start += self.getRandom()
+
+		begin = 0
+		while start < end:
+			if begin == 0:
+				begin = 1
+				yield start
+			start += self.getRandomDate()
+			yield start
+			
+
+
+
