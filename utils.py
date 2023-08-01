@@ -185,7 +185,7 @@ class CacheSingleQuery(object):
 
         dfOut = df.iloc[startInd:endInd]
         tarOut = df.iloc[endInd+1]
-        return dfOut
+        return dfOut, tarOut
 
 class Top5Query(object):
 
@@ -307,6 +307,9 @@ class CacheDataQuery(object):
         self.cq = CacheSingleQuery(cacheData)
         self.top5Query = TOP5_Query(cacheData, self.cq)
         self.depsQuery = DEPS_Query(cacheData, self.cq)
+
+    def get_symbol_start_end_time(symbol):
+    	symbolData = self.cache
 
     def fill_one_period(self, symbol, start, end, img):
         self.top5Query.fill_one_period_top5(symbol, start, end, img)

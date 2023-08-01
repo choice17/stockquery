@@ -7,6 +7,7 @@ from tqdm import tqdm as Pbar
 from datetime import datetime as DT
 import pytz
 import shutil
+from utils import RandomPeriodGenerator, CacheDataQuery
 
 from define import *
 
@@ -237,13 +238,14 @@ def generate_training_data_1day(dataList):
     dataSize = [5, 224, 224]
     targetSize = [5, 224]
 
-    cdq = CACHE_DATA_Query(dataList)
+    cdq = CacheDataQuery(dataList)
     STAGE2_DIR = 'train'
     STAGE2_DIR_1DAT = 'train/oneday'
 
     os.makedir(STAGE2_DIR_1DAT)
     for key, item in cdq.cq.symbolCategoryMap.items():
         symbol, cat = key, item
+        oneDf = cdq.cq.query_single_symbol_df(symbol)
         path = STAGE2_DIR_1DAT + "/" + cat + "/" + symbol
 
         if not os.path.exists(path):
@@ -259,6 +261,8 @@ def generate_training_data_1day(dataList):
         #   normalizedData = normalize_data_strategy_one(data)
         #   img1.pl = {"dat": [5,224,224], "symbol" : "", "<cat>", "begin":[5,224], "target":[5,224]}
         #   dump(img1.pl, dst)
+        dategen = RandomPeriodGenerator()
+
 
 
 def generate_training_data_category(dataList):
