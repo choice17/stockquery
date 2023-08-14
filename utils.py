@@ -10,10 +10,20 @@ from define import *
 import pickle as pl
 import random
 import re
+import numpy as np
 
 random.seed(2023)
 
 class _Day(object):
+
+    def convert_df_time_to_np(self, dftime):
+        linuxtime = np.array(list(map(lambda x: x.timestamp(), dftime)))
+        return linuxtime
+
+    def get_date_period(self, stime=[], etime=[]):
+        begin = DT(stime[0],stime[1], stime[2], 12, 0, 0).timestamp()
+        end = DT(etime[0],etime[1], etime[2], 12, 0, 0).timestamp()
+        return begin, end
 
     def get_date_begin_num(self, stime):
         d = DT.fromtimestamp(stime)
@@ -112,7 +122,8 @@ def run_multiThreading(function, listArgs, poolSize=4):
 
 
 def closest_value_index(input_list, input_value):
-    arr = np.asarray(input_list)
+    #arr = np.asarray(input_list)
+    arr = input_list
     i = (np.abs(arr - input_value)).argmin()
     return arr[i], i
 
@@ -148,7 +159,7 @@ class CacheSingleQuery(object):
         try:
             dataSection, ind, _, _ = self.indexMap[symbol]
         except KeyError:
-            Log.info(f"Cannot find {symbol} in cache!")
+            Log.error(f"Cannot find {symbol} in cache!")
             exit(1)
 
         path, df =  self.dat[dataSection][ind]
@@ -158,16 +169,39 @@ class CacheSingleQuery(object):
         try:
             dataSection, ind, _, _ = self.indexMap[symbol]
         except KeyError:
-            log(f"Cannot find {symbol} in cache!")
+            Log.error(f"Cannot find {symbol} in cache!")
             exit(1)
 
         path, df =  self.dat[dataSection][ind]
         
         timeInd = df.index
-        _, startInd = closest_value_index(timeInd, start)
-        _, endInd = closest_value_index(timeInd, end)
+        timeIndVal = Day.convert_df_time_to_np(timeInd)
+        _, startInd = closest_value_index(timeIndVal, start)
+        _, endInd = closest_value_index(timeIndVal, end)
 
         dfOut = df.iloc[startInd:endInd]
+        return dfOut
+
+    def query_single_symbol_df_period(self, symbol, start, duration, fmt="day"):
+        try:
+            dataSection, ind, _, _ = self.indexMap[symbol]
+        except KeyError:
+            Log.error(f"Cannot find {symbol} in cache!")
+            exit(1)
+
+        path, df =  self.dat[dataSection][ind]
+        
+        timeInd = df.index
+        timeIndVal = Day.convert_df_time_to_np(timeInd)
+        _, startInd = closest_value_index(timeIndVal, start)
+
+        endInd = -1
+        if fmt == "day":
+            endInd = startInd + duration
+        else:
+            raise ValueError(f"does not support {fmt}.")
+        dfOut = df.iloc[startInd:endInd]
+
         return dfOut
 
     def query_single_symbol_df_time_with_one_day_target(self, symbol, start, end):
@@ -180,8 +214,31 @@ class CacheSingleQuery(object):
         path, df =  self.dat[dataSection][ind]
         
         timeInd = df.index
-        _, startInd = closest_value_index(timeInd, start)
-        _, endInd = closest_value_index(timeInd, end)
+        timeIndVal = Day.convert_df_time_to_np(timeInd)
+        _, startInd = closest_value_index(timeIndVal, start)
+        _, endInd = closest_value_index(timeIndVal, end)
+
+        dfOut = df.iloc[startInd:endInd]
+        tarOut = df.iloc[endInd+1]
+        return dfOut, tarOut
+
+    def query_single_symbol_df_period_with_one_day_target(self, symbol, start, duration, fmt="day"):
+        try:
+            dataSection, ind, _, _ = self.indexMap[symbol]
+        except KeyError:
+            log(f"Cannot find {symbol} in cache!")
+            exit(1)
+
+        path, df =  self.dat[dataSection][ind]
+        
+        timeInd = df.index
+        timeIndVal = Day.convert_df_time_to_np(timeInd)
+        _, startInd = closest_value_index(timeIndVal, start)
+        if fmt == "day":
+            endInd = startInd + duration
+        else:
+            raise ValueError(f"{fmt} is not supported.")
+        #_, endInd = closest_value_index(timeIndVal, end)
 
         dfOut = df.iloc[startInd:endInd]
         tarOut = df.iloc[endInd+1]
@@ -278,7 +335,7 @@ class DepsQuery(object):
                 img[:, ind, :] = npDat
             ind += 1
 
-    def fill_one_period_period_target_one_day(self, symbol, start, end, img, target):
+    def fill_one_period_target_one_day(self, symbol, start, end, img, target):
         assert img.shape == IMG_SIZE, "image shape is not expected"
         assert len(self.cq.depsList) == DEPS_DEPTH, "deps shape is not expected"
         ind = 5
@@ -294,10 +351,26 @@ class DepsQuery(object):
                 target[:, ind] = np.array(tar)
             ind += 1
 
-    def fill_one_period_period_target_one_week(self, symbol, start, end, img, target):
+    def fill_one_duration_target_one_day(self, symbol, start, duration, img, target, fmt="day"):
+        assert img.shape == tuple(IMG_SIZE), f"image shape is not expected {img.shape} vs {IMG_SIZE}"
+        assert len(self.cq.depsList) == DEPS_DEPTH, "deps shape is not expected"
+        ind = 5
+        for sym in self.cq.depsList:
+            dat, tar = self.cq.query_single_symbol_df_period_with_one_day_target(sym, start, duration)
+            npDat = np.array(dat)
+            tarDat = np.array(tar)
+            w = npDat.shape[1]
+            if w < STOCK_DEPTH:
+                img[:, ind, STOCK_DEPTH-w:] = npDat
+            else:
+                img[:, ind, :] = npDat
+                target[:, ind] = np.array(tar)
+            ind += 1
+
+    def fill_one_period_target_one_week(self, symbol, start, end, img, target):
         pass
 
-    def fill_one_period_period_target_category(self, symbol, start, end, img, target):
+    def fill_one_period_target_category(self, symbol, start, end, img, target):
         pass
 
 class CacheDataQuery(object):
@@ -309,7 +382,7 @@ class CacheDataQuery(object):
         self.depsQuery = DEPS_Query(cacheData, self.cq)
 
     def get_symbol_start_end_time(symbol):
-    	symbolData = self.cache
+        symbolData = self.cache
 
     def fill_one_period(self, symbol, start, end, img):
         self.top5Query.fill_one_period_top5(symbol, start, end, img)
@@ -371,7 +444,7 @@ class RandomPeriodGenerator(object):
                 yield start
             start += self.getRandomDate() * self.DAYNUM
             if start > end:
-            	break
+                break
             yield start
             
 
